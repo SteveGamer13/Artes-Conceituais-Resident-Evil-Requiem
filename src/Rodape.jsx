@@ -12,7 +12,7 @@ function Rodape() {
             © Site Feito Por Fã
         </p>
 
-        <img src="/images/umbrella.png" alt="Umbrella Logo" className="logo-rodape"
+        <img src="images/umbrella.png" alt="Umbrella Logo" className="logo-rodape"
         />
 
     </footer>
