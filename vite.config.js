@@ -3,5 +3,5 @@ import react from '@vitejs/plugin-react'
 
 export default defineConfig({
   plugins: [react()],
-  base : "/Artes-Conceituais-Resident-Evil-Requiem/"
+  base : "/resident_evil/"
 })
