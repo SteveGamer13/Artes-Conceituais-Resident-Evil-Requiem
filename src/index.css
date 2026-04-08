@@ -163,7 +163,7 @@ h1::first-letter {
 .menu_ligar{
     font-size: 30px;
     color: rgba(255, 255, 255, 0.9);
-    background-image: url("./images/fundo_texto.png");
+    background-image: url("/images/fundo_texto.png");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -174,7 +174,7 @@ h1::first-letter {
 
 .menu_ligar:hover{
     color: rgba(0, 0, 0, 0.9);
-    background-image: url("./images/fundo_texto_hover.png");
+    background-image: url("/images/fundo_texto_hover.png");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
