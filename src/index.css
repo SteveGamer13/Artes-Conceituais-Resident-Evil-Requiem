@@ -24,7 +24,7 @@ body::before{
     position: fixed;
     inset: 0;
 
-    background-image: url("/Artes-Conceituais-Resident-Evil-Requiem/images/requiem.png");
+    background-image: url("/images/requiem.png");
     background-size: cover;
     background-position: center;
 
