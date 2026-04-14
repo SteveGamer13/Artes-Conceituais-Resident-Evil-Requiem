@@ -5,6 +5,7 @@ function Menu() {
 
   const [menuAtivo, setMenuAtivo] = useState("principal")
   const [imagens, setImagens] = useState([{ img: "images/menu.png", texto: "" }])
+
   
   return (
     <div className="container">
@@ -13,9 +14,42 @@ function Menu() {
 
         {menuAtivo === "sobre" ? (
 
-          <p className="texto-sobre">
-            Este site tem como objetivo apenas divulgar e compartilhar as artes conceituais do jogo Resident Evil Requiem, que são desbloqueadas após a conclusão da história principal do jogo. O conteúdo apresentado aqui foi reunido com a intenção de permitir que fãs apreciem essas artes com mais facilidade, reunidas em um único lugar. <br /> <br />O projeto não possui qualquer finalidade comercial, não gera lucro e não tem a intenção de monetizar ou obter qualquer tipo de ganho a partir das artes ou do conteúdo do jogo. Trata-se apenas de uma iniciativa criada por fã, para fãs, com o objetivo de valorizar o trabalho artístico presente no jogo e compartilhar essa experiência com a comunidade. <br /> <br />Todo o material apresentado pertence aos seus respectivos criadores e detentores de direitos. Este site existe apenas como uma forma de homenagem ao jogo e ao incrível trabalho artístico presente em Resident Evil Requiem.
-          </p>
+          <div className="texto-sobre">
+
+            <p>
+              Este site tem como objetivo apenas divulgar e compartilhar as artes conceituais do jogo Resident Evil Requiem, que são desbloqueadas após a conclusão da história principal do jogo. O conteúdo apresentado aqui foi reunido com a intenção de permitir que fãs apreciem essas artes com mais facilidade, reunidas em um único lugar. 
+            <br /><br />
+            O projeto não possui qualquer finalidade comercial, não gera lucro e não tem a intenção de monetizar ou obter qualquer tipo de ganho a partir das artes ou do conteúdo do jogo. Trata-se apenas de uma iniciativa criada por fã, para fãs, com o objetivo de valorizar o trabalho artístico presente no jogo e compartilhar essa experiência com a comunidade. 
+            <br /><br />
+            Todo o material apresentado pertence aos seus respectivos criadores e detentores de direitos. Este site existe apenas como uma forma de homenagem ao jogo e ao incrível trabalho artístico presente em Resident Evil Requiem.
+            <br /><br />
+            Caso queira conhecer mais sobre o jogo, produzi dois vídeos jogando. Aproveite também para conhecer um pouco mais do meu trabalho e conteúdo.
+           </p>
+
+            <br />
+
+            <iframe
+              width="100%"
+              height="500"
+              src="https://www.youtube.com/embed/qngjPHp2t9I"
+              title="Resident Evil Requiem"
+              frameBorder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+            ></iframe>
+            <br /><br />
+            <iframe
+              width="100%"
+              height="500"
+              src="https://www.youtube.com/embed/unDKoxuriuQ"
+              title="Resident Evil Requiem"
+              frameBorder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+            ></iframe>
+
+          </div>
+          
 
         ) : (
 
