@@ -1,16 +1,30 @@
 import './index.css'
-import { useState } from 'react'
+import { useState, useRef, useEffect } from 'react'
 
 function Menu() {
 
   const [menuAtivo, setMenuAtivo] = useState("principal")
   const [imagens, setImagens] = useState([{ img: "images/menu.png", texto: "" }])
 
+  const audioRef = useRef(null)
   
+  useEffect(() => {
+  const audio = new Audio("/Artes-Conceituais-Resident-Evil-Requiem/images/audio/botao.mp3")
+  audio.volume = 0.2
+  audioRef.current = audio}, [])
+
+
+  function tocarClick(){
+    if(audioRef.current){
+      audioRef.current.currentTime = 0
+      audioRef.current.play()
+    }
+  }
+    
   return (
     <div className="container">
-
-    <main className="conteudo bloco-branco">
+      <audio ref={audioRef} src="images/audio/botao.mp3" preload="auto"></audio>
+      <main className="conteudo bloco-branco">
 
         {menuAtivo === "sobre" ? (
 
@@ -75,23 +89,23 @@ function Menu() {
 
           {menuAtivo === "principal" && (
             <>
-              <button className="menu_ligar" onClick={() => setMenuAtivo("personagens")}>
+              <button className="menu_ligar" onClick={() => {tocarClick(),setMenuAtivo("personagens")}}>
                 Personagens
               </button>
 
-              <button className="menu_ligar" onClick={() => setMenuAtivo("inimigos")}>
+              <button className="menu_ligar" onClick={() => {tocarClick(),setMenuAtivo("inimigos")}}>
                 Inimigos
               </button>
 
-              <button className="menu_ligar" onClick={() => setMenuAtivo("locais")}>
+              <button className="menu_ligar" onClick={() => {tocarClick(),setMenuAtivo("locais")}}>
                 Locais
               </button>
 
-              <button className="menu_ligar" onClick={() => setMenuAtivo("itens")}>
+              <button className="menu_ligar" onClick={() => {tocarClick(),setMenuAtivo("itens")}}>
                 Itens
               </button>
 
-              <button className="menu_ligar" onClick={() => setMenuAtivo("sobre")}>
+              <button className="menu_ligar" onClick={() => {tocarClick(),setMenuAtivo("sobre")}}>
                 Sobre
               </button>
 
@@ -100,7 +114,7 @@ function Menu() {
 
           {menuAtivo === "personagens" && (
             <>
-              <button className="botao animar" onClick={() => setImagens([
+              <button className="botao animar" onClick={() => {tocarClick(), setImagens([
                 {img:"images/leon.png", texto: "Design do personagem Leon S. Kennedy."},
                 {img:"images/leon_city.png",texto:"Leon investigando caso em Wrenwood."},
                 {img:"images/leon_atac_city.png",texto:"Leon em ataque de bioterrorismo em Wrenwood."},
@@ -112,95 +126,95 @@ function Menu() {
                 {img:"images/leon_planta.png",texto:"Leon lutando contra Planta 43."},
                 {img:"images/ark_leon_final.png", texto:"Leon Chegando até a Elpis no laboratório ARK."},
                 {img:"images/ark_batalha_final.png", texto:"Leon destruindo Dr.Victor Gideon transformado em Nemesis no laboratório ARK."}
-              ])}>Leon</button>
+              ])}}>Leon</button>
 
-              <button className="botao animar" onClick={() => setImagens([
+              <button className="botao animar" onClick={() => {tocarClick(),setImagens([
                 {img:"images/grace.png", texto:"Design da persongem Grace Ashcroft."},
                 {img:"images/grace_city.png",  texto:"Grace chegando em Wrenwood."},
                 {img:"images/inicio_city.png",  texto:"Momentos iniciais do jogo em Wrenwood."},
                 {img: "images/grace_emily.png",  texto:"Grace encontrando Emily."}
-              ])}>Grace</button>
+              ])}}>Grace</button>
 
-              <button className="botao animar" onClick={() => setImagens([
+              <button className="botao animar" onClick={() => {tocarClick(),setImagens([
                 {img:"images/sherry.png", texto:"Design da persongem Sherry."}
-              ])}>Sherry</button>
+              ])}}>Sherry</button>
 
-              <button className="botao animar" onClick={() => setImagens([
+              <button className="botao animar" onClick={() => {tocarClick(),setImagens([
                 {img:"images/mae.png", texto:"Design da personagem Alyssa Ashcroft."}
-              ])}>Alyssa</button>
+              ])}}>Alyssa</button>
               
-              <button className="botao animar" onClick={() => {setMenuAtivo("principal"), setImagens([{ img: "images/menu.png", texto: "" }])}}>
+              <button className="botao animar" onClick={() => {setMenuAtivo("principal"), tocarClick(),setImagens([{ img: "images/menu.png", texto: "" }])}}>
               Voltar</button>
             </>
           )}
 
           {menuAtivo === "inimigos" && (
             <>
-              <button className="botao animar" onClick={() => setImagens([
+              <button className="botao animar" onClick={() => {tocarClick(),setImagens([
                 {img:"images/guideon.png", texto:"Design do personagem Dr. Victor Gideon."},
                 {img:"images/inicio_city.png", texto:"Momentos iniciais do jogo em Wrenwood."},
                 {img:"images/racooncity_leon_guideon.png", texto:"Leon batalha nas estradas de Raccoon City contra o Dr. Victor Gideon."}
-              ])}>Dr.Gideon</button>
+              ])}}>Dr.Gideon</button>
 
-              <button className="botao animar" onClick={() => setImagens([
+              <button className="botao animar" onClick={() => {tocarClick(),setImagens([
                 {img:"images/zeno.png",texto:"Design do personagem Zeno."},
                 {img:"images/ark_final.png",texto:"Parte final do jogo."},
                 {img:"images/ark_final_2.png", texto:"Parte final do jogo 2."}
-              ])}>Zeno</button>
+              ])}}>Zeno</button>
               
-              <button className="botao animar" onClick={() => setImagens([
+              <button className="botao animar" onClick={() => {tocarClick(),setImagens([
                 {img:"images/misterx.png", texto:"Design do tyrant Mr.X."}
-              ])}>Mr.X</button>
+              ])}}>Mr.X</button>
 
-              <button className="botao animar" onClick={() => setImagens([
+              <button className="botao animar" onClick={() => {tocarClick(),setImagens([
                 {img:"images/zombie_racooncity.png",texto:"Design dos zombies de Raccoon City."},
                 {img:"images/leon_atac_city.png", texto:"Leon em ataque de bioterrorismo em Wrenwood."}
-              ])}>Zombies</button>
+              ])}}>Zombies</button>
 
-              <button className="botao animar" onClick={() => setImagens([
+              <button className="botao animar" onClick={() => {tocarClick(),setImagens([
                 {img:"images/zombie_job.png",texto:"Design zombie de cabeça pustulenta."},
                 {img:"images/zombie_bolhas.png",texto:"Design zombie pustulento."}
-              ])}>Pustulento</button>
+              ])}}>Pustulento</button>
 
-              <button className="botao animar" onClick={() => setImagens([
+              <button className="botao animar" onClick={() => {tocarClick(),setImagens([
                 {img:"images/bichao.png", texto:"Design da personagem A garota."}
-              ])}>A Garota</button>
+              ])}}>A Garota</button>
 
-              <button className="botao animar" onClick={() => setImagens([
+              <button className="botao animar" onClick={() => {tocarClick(),setImagens([
                 {img:"images/zombie_gordo.png", texto:"Design do Chunk."}
-              ])}>Chunk</button>
+              ])}}>Chunk</button>
 
-              <button className="botao animar" onClick={() => setImagens([
+              <button className="botao animar" onClick={() => {tocarClick(),setImagens([
                 {img:"images/emily_bichao2.png", texto:"Design da personagem Emily transformada."},
                 {img:"images/emily_bichao.png", texto:"Design da personagem Emily transformada 2."}
-              ])}>Emily</button>
+              ])}}>Emily</button>
 
-              <button className="botao animar" onClick={() => setImagens([
+              <button className="botao animar" onClick={() => {tocarClick(),setImagens([
                 {img:"images/lobo.png", texto:"Design do Garmr."}
-              ])}>Garmr</button>
+              ])}}>Garmr</button>
 
-              <button className="botao animar" onClick={() => setImagens([
+              <button className="botao animar" onClick={() => {tocarClick(),setImagens([
                 {img:"images/planta.png", texto:"Design da Planta 43."},
                 {img:"images/leon_planta.png",texto:"Leon lutando contra Planta 43."}
-              ])}>Planta 43</button>
+              ])}}>Planta 43</button>
 
 
-              <button className="botao animar" onClick={() => {setMenuAtivo("principal"), setImagens([{ img: "images/menu.png", texto: "" }])}}>
+              <button className="botao animar" onClick={() => {setMenuAtivo("principal"),tocarClick(), setImagens([{ img: "images/menu.png", texto: "" }])}}>
               Voltar</button>
             </>
           )}
 
           {menuAtivo === "locais" && (
             <>
-              <button className="botao animar" onClick={() => setImagens([
+              <button className="botao animar" onClick={() => {tocarClick(),setImagens([
                 {img:"images/grace_city.png",  texto:"Grace chegando em Wrenwood."},
                 {img:"images/inicio_city.png",  texto:"Momentos iniciais do jogo em Wrenwood."},
                 {img:"images/leon_atac_city.png",texto:"Leon em ataque de bioterrorismo em Wrenwood."},
                 {img:"images/hospital_entrada.png", texto:"Hospital do Dr.Victor Gideon em Wrenwood."},
                 {img:"images/hospital.png", texto:"Comodos do hospital do Dr.Victor Gideon em Wrenwood."}
 
-              ])}>Wrenwood</button>
-              <button className="botao animar" onClick={() => setImagens([
+              ])}}>Wrenwood</button>
+              <button className="botao animar" onClick={() => {tocarClick(),setImagens([
                 {img:"images/racooncity_inicio.png", texto:"Leon chegando na cidade destruída Raccoon City"},
                 {img:"images/racooncity_aranha.png",texto:"Leon batalha contra aranha gigante."},
                 {img:"images/racooncity-estrada.png",texto:"Leon explorando as ruas de Raccoon City."},
@@ -211,8 +225,8 @@ function Menu() {
                 {img:"images/racooncity_locais.png", texto:"Exploração da RPD e orfanato de Raccoon City."}
 
 
-              ])}>RaccoonCity</button>
-              <button className="botao animar" onClick={() => setImagens([
+              ])}}>RaccoonCity</button>
+              <button className="botao animar" onClick={() => {tocarClick(),setImagens([
                 {img:"images/ark_entrada.png", texto:"Entrada do laboratório ARK."},
                 {img:"images/ark_porta.png", texto:"Desing porta de entrada ARK."},
                 {img:"images/ark_bau.png", texto:"Baú ARK."},
@@ -233,29 +247,29 @@ function Menu() {
                 {img:"images/ark_final_2.png", texto:"Parte final do jogo 2."},
                 {img:"images/ark_batalha_final.png", texto:"Leon destruindo Dr.Victor Gideon transformado em Nemesis no laboratório ARK."}
                 
-              ])}>ARK</button>
+              ])}}>ARK</button>
 
-              <button className="botao animar" onClick={() => {setMenuAtivo("principal"), setImagens([{ img: "images/menu.png", texto: "" }])}}>
+              <button className="botao animar" onClick={() => {setMenuAtivo("principal"),tocarClick(), setImagens([{ img: "images/menu.png", texto: "" }])}}>
               Voltar</button>
             </>
           )}
 
           {menuAtivo === "itens" && (
             <>
-              <button className="botao animar" onClick={() => setImagens([
+              <button className="botao animar" onClick={() => {tocarClick(),setImagens([
                 {img:"images/itens1.png", texto:"Desing kit de pistolas e machadinha."}
-              ])}>Armas 1</button>
-              <button className="botao animar" onClick={() => setImagens([
+              ])}}>Armas 1</button>
+              <button className="botao animar" onClick={() => {tocarClick(),setImagens([
                {img: "images/itens2.png", texto:"Desing kit de armas fortes."}
-              ])}>Armas 2</button>
-              <button className="botao animar" onClick={() => setImagens([
+              ])}}>Armas 2</button>
+              <button className="botao animar" onClick={() => {tocarClick(),setImagens([
                 {img:"images/itens3.png", texto:"Desing kit de utilitários do jogo."}
-              ])}>Utilitários</button>
-              <button className="botao animar" onClick={() => setImagens([
+              ])}}>Utilitários</button>
+              <button className="botao animar" onClick={() => {tocarClick(),setImagens([
                {img:"images/requiem.png", texto:"Desing da Requiem, arma mais forte do jogo."}
-              ])}>Requiem</button>
+              ])}}>Requiem</button>
 
-              <button className="botao animar" onClick={() => {setMenuAtivo("principal"), setImagens([{ img: "images/menu.png", texto: "" }])}}>
+              <button className="botao animar" onClick={() => {setMenuAtivo("principal"), tocarClick(),setImagens([{ img: "images/menu.png", texto: "" }])}}>
               Voltar</button>
             </>
           )}
@@ -263,7 +277,7 @@ function Menu() {
           {menuAtivo === "sobre" && (
             <>
               
-            <button className="botao animar" onClick={() => {setMenuAtivo("principal"), setImagens([{ img: "images/menu.png", texto: "" }])}}>
+            <button className="botao animar" onClick={() => {setMenuAtivo("principal"),tocarClick(), setImagens([{ img: "images/menu.png", texto: "" }])}}>
               Voltar</button>
             </>
           )}
